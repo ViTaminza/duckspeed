@@ -7,7 +7,7 @@
  
 # Installation
 1. Install [SwiftlyS2](https://github.com/swiftly-solution/swiftlys2)
-3. Download [DuckSpeed](https://github.com/ViTaminza/duckspeed/releases)
+3. Download [DuckSpeed](https://github.com/ViTaminza/duckspeed/releases/tag/release)
 4. Unzip the archive and upload it to the game server
  
 
