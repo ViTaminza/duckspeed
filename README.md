@@ -7,5 +7,5 @@
 
 ## 🧠 Credits & Inspiration
 
-- **[Duck Speed]([https://github.com/Letaryat/CS2-Poor-MapDecals](https://github.com/partiusfabaa/cs2-duckspeed))**  
+- **[Duck Speed](https://github.com/partiusfabaa/cs2-duckspeed)**  
   Original concept and partial code inspiration.
