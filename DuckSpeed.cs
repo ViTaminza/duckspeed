@@ -10,7 +10,7 @@ namespace duckspeed;
     Version = "1.0.0",
     Name = "Duck Speed",
     Author = "ViTamin",
-    Description = "A plugin that disables crouch delay."
+    Description = "A plugin that disables crouch delay (safer)."
 )]
 public sealed class Plugin : BasePlugin
 {
@@ -20,6 +20,7 @@ public sealed class Plugin : BasePlugin
 
     public override void Load(bool hotReload)
     {
+        Core.Event.OnMovementServicesRunCommandHook -= OnRunCommand;
         Core.Event.OnMovementServicesRunCommandHook += OnRunCommand;
     }
 
@@ -33,11 +34,13 @@ public sealed class Plugin : BasePlugin
         var ms = e.MovementServices;
         if (ms == null)
             return;
+            
         if (!ms.DesiresDuck && ms.DuckAmount <= 0.0f)
             return;
-        ms.DuckSpeed = DuckSpeedValue;
-        ms.DuckTimeMsecs = 0;
-        ms.LastDuckTime = 0.0f;
-        ms.SpeedCropped = false;
+
+        if (ms.DuckSpeed != DuckSpeedValue) ms.DuckSpeed = DuckSpeedValue;
+        if (ms.DuckTimeMsecs != 0) ms.DuckTimeMsecs = 0;
+        if (ms.LastDuckTime != 0.0f) ms.LastDuckTime = 0.0f;
+        if (ms.SpeedCropped) ms.SpeedCropped = false;
     }
 }
